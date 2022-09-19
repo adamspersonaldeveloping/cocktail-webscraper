@@ -15,7 +15,5 @@ submit = driver.find_element("xpath", "/html/body/div[8]/p[2]/button[1]").click(
 #sleep5
 ingredients = driver.find_element("xpath", '/html/body/div[1]/div/div/div/div/div/div/div/div[2]/div[1]/p[1]')
 
-# h1 = driver.find_element(By.XPATH, '/html/body/h1')
-# ingredients = driver.find_element(By.XPATH, '/html/body/div[1]/div/div/div/div/div/div/div/div[2]/div[1]/p[1]')
-print(driver.page_source)
+print(ingredients)
 driver.quit()
