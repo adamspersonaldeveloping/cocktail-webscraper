@@ -1,5 +1,7 @@
 from selenium import webdriver
 import time
+import pandas as pd
+
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.support.ui import WebDriverWait
@@ -23,14 +25,28 @@ try:
     )
     
 finally:
+    cocktailName = driver.find_element("xpath", '//*[@id="main-content"]/div/div/div/div/div[1]/div/div/h1').get_attribute('textContent')
+    
     ingredients = driver.find_element("xpath", '/html/body/div[1]/div/div/div/div/div/div/div/div[2]/div[1]/p[1]').get_attribute('textContent')
-    print(ingredients)
+
+    method = driver.find_element("xpath", '//*[@id="main-content"]/div/div/div/div/div[2]/div[1]/p[2]').get_attribute('textContent')
+   
+    garnish = driver.find_element("xpath", '//*[@id="main-content"]/div/div/div/div/div[2]/div[1]/p[3]').get_attribute('textContent')
+
+    cocktail = {
+        'cocktailName': cocktailName,
+        'ingredients': ingredients,
+        'method': method,
+        'garnish': garnish,
+        'ibaCocktail': 'true',
+
+    }
+    # print(cocktail)
+    df = pd.DataFrame(cocktail)
+    print(df.head())
+    
+    
 
 
-# sleep5 = driver.time.sleep(5)
-# submit = driver.find_element("xpath", "/html/body/div[8]/p[2]/button[1]").click()
-# sleep1 = driver.time.sleep(1)
-# ingredients = driver.find_element("xpath", '/html/body/div[1]/div/div/div/div/div/div/div/div[2]/div[1]/p[1]').element.text
 
-#print(ingredients)
 driver.quit()
