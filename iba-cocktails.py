@@ -25,25 +25,29 @@ try:
     )
     
 finally:
-    cocktailName = driver.find_element("xpath", '//*[@id="main-content"]/div/div/div/div/div[1]/div/div/h1').get_attribute('textContent')
+    #cocktailName = driver.find_element("xpath", '//*[@id="main-content"]/div/div/div/div/div[1]/div/div/h1').get_attribute('textContent')
     
     ingredients = driver.find_element("xpath", '/html/body/div[1]/div/div/div/div/div/div/div/div[2]/div[1]/p[1]').get_attribute('textContent')
-
-    method = driver.find_element("xpath", '//*[@id="main-content"]/div/div/div/div/div[2]/div[1]/p[2]').get_attribute('textContent')
+    ingredientsArray = ingredients.split('\n')
+    ingredients2 = {}
+    for index, val in ingredientsArray:
+        ingredients2.append(f'ingredient{index}: {val}') #for index, val in enumerate(ingredients):
+    print(ingredients2)
+   # method = driver.find_element("xpath", '//*[@id="main-content"]/div/div/div/div/div[2]/div[1]/p[2]').get_attribute('textContent')
    
-    garnish = driver.find_element("xpath", '//*[@id="main-content"]/div/div/div/div/div[2]/div[1]/p[3]').get_attribute('textContent')
+    #garnish = driver.find_element("xpath", '//*[@id="main-content"]/div/div/div/div/div[2]/div[1]/p[3]').get_attribute('textContent')
 
-    cocktail = {
-        'cocktailName': cocktailName,
-        'ingredients': ingredients,
-        'method': method,
-        'garnish': garnish,
-        'ibaCocktail': 'true',
+    #cocktail = {
+    #     'cocktailName': cocktailName,
+    #     'ingredients': ingredients,
+    #     'method': method,
+    #     'garnish': garnish,
+    #     'ibaCocktail': 'true',
 
-    }
+    # }
     # print(cocktail)
-    df = pd.DataFrame(cocktail)
-    print(df.head())
+    #df = pd.DataFrame(cocktail)
+    #print(df.head())
     
     
 
