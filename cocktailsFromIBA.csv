@@ -1,2 +1,5 @@
-,0
-0,
+,cocktailName,ingredients,method,garnish,importance,ibaCocktail,_id
+0,Trinidad Sour,"{'ingredient0': '45 ml Angostura Bitters', 'ingredient1': '30 ml Orgeat Syrup', 'ingredient2': '22.5 ml Fresh Lemon Juice', 'ingredient3': '15 ml Rye Whisky'}","Pour all ingredients into a cocktail shaker, shake well with ice, strain into a chilled cocktail glass.",N/A,New Era Drinks,true,632c6be73ec719204d23cf98
+1,Alexander,"{'ingredient0': '30 ml Cognac', 'ingredient1': '30 ml Crème de Cacao (Brown)', 'ingredient2': '30 ml Fresh Cream'}",Pour all ingredients into cocktail shaker filled with ice cubes. Shake and strain into a chilled cocktail glass.,Sprinkle fresh ground nutmeg on top.,The Unforgettables,true,632c6be73ec719204d23cf99
+2,Americano,"{'ingredient0': '30 ml Bitter Campari', 'ingredient1': '30 ml Sweet Red Vermouth', 'ingredient2': 'A splash of Soda Water'}",Mix the ingredients directly in an old fashioned glass filled with ice cubes. Add a splash of Soda Water. Stir gently.,Garnish with half orange slice and a lemon zest.,The Unforgettables,true,632c6be73ec719204d23cf9a
+3,Angel Face,"{'ingredient0': '30 ml Gin', 'ingredient1': '30 ml Apricot Brandy', 'ingredient2': '30 ml Calvados'}",Pour all ingredients into cocktail shaker filled with ice cubes. Shake and strain into a chilled cocktail glass.,N/A,The Unforgettables,true,632c6be73ec719204d23cf9b
