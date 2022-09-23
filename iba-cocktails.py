@@ -2,17 +2,20 @@ from selenium import webdriver
 import pymongo
 import pandas as pd
 import csv
+import os
+from dotenv import load_dotenv
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-
+load_dotenv()
+db = os.getenv("DB_STRING")
 options = Options()
 options.headless = True
 options.add_argument("--window-size=1920,1200")
 
-client = pymongo.MongoClient("mongodb+srv://adamspersonaldeveloping:bczjdTYNN38wg4qr@cluster0.qbjnhw6.mongodb.net/?retryWrites=true&w=majority")
+client = pymongo.MongoClient(db)
 db = client["cocktails-apd"]
 col = db["cocktails-iba"]
 
@@ -50,8 +53,10 @@ for val in urlList[0]:
          'ingredients': Convert(ingredients),
          'method': method,
          'garnish': garnish,
-         'importance': importance,
+         'styleType': importance,
          'ibaCocktail': 'true',
+         'public': 'true',
+         'user': 'IBA',
      }
 
      cocktailList.append(cocktail)
