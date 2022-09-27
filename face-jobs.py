@@ -16,8 +16,8 @@ options.headless = True
 options.add_argument("--window-size=1920,1200")
 
 client = pymongo.MongoClient(db)
-db = client["cocktails-apd"]
-col = db["cocktails-iba"]
+db = client["test"]
+col = db["posts"]
 
 DRIVER_PATH = '/Users/stein/Desktop/chromedriver'
 service = Service(
@@ -37,27 +37,35 @@ for val in urlList[0]:
      cocktailName = driver.find_element("xpath", '//*[@id="main-content"]/div/div/div/div/div[1]/div/div/h1').get_attribute('textContent')
      
      ingredients = driver.find_element("xpath", '/html/body/div[1]/div/div/div/div/div/div/div/div[2]/div[1]/p[1]').get_attribute('textContent').split('\n')
-     
-     def Convert(ingredients):
-        ingredientDick= {f'ingredient{i}': ingredients[i] for i in range(0, len(ingredients))}
-        return ingredientDick
 
      method = driver.find_element("xpath", '//*[@id="main-content"]/div/div/div/div/div[2]/div[1]/p[2]').get_attribute('textContent')
 
      garnish = driver.find_element("xpath", '//*[@id="main-content"]/div/div/div/div/div[2]/div[1]/p[3]').get_attribute('textContent')
-     
+
      importance = driver.find_element("xpath", '/html/body/div[1]/div/div/div/div/div/div/div/div[1]/div/div/p/a[2]').get_attribute('textContent')
      
+     #note = driver.find_element("xpath", '//*[@id="main-content"]/div/div/div/div/div[2]/div[1]/div/div/p[1]/text()[1]').get_attribute('textContent')
+
+     image = driver.find_element("xpath", '/html/head/meta[12]').get_attribute("content")
+
+    
+
      cocktail = {
          'cocktailName': cocktailName,
-         'ingredients': Convert(ingredients),
+         'ingredients': ingredients,
          'method': method,
          'garnish': garnish,
+         #'note': note,
+         'image': image,
          'importance': importance,
          'ibaCocktail': 'true',
+         'public': 'true',
+         'user': 'International Bartenders Association',
+         'createdAt': 1,
      }
 
      cocktailList.append(cocktail)
+     print(cocktail)
 
 print(cocktailList)
 
